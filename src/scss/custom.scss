@@ -1,5 +1,126 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap");
 
+// @media only screen and (max-width: 500px){
+
+$primary-color: #1f51bc;
+$secondary-color: #07296f;
+$tertiary-color: #80bc0d;
+$quaternary-color: #f55233;
+$quinary-color: #ded7f8;
+$senary-color: #f4f5f8;
+
+@mixin btn__primary {
+  background-color: $primary-color;
+  color: $senary-color;
+  padding: 0.5em 1em;
+  transition: 0.3s ease-in;
+  font-weight: 700;
+  border: $primary-color 2px solid;
+  &:hover {
+    background-color: $senary-color;
+    color: $primary-color;
+    border-radius: 3px;
+  }
+}
+
+@mixin btn__secondary {
+  background-color: $senary-color;
+  color: $primary-color;
+  padding: 0.5em 1em;
+  transition: 0.3s ease-in;
+  font-weight: 700;
+  &:hover {
+    background-color: $primary-color;
+    color: $senary-color;
+    border: $senary-color 2px solid;
+    border-radius: 3px;
+  }
+}
+
 body {
+  background-color: $senary-color;
   font-family: "Nunito Sans", sans-serif;
+}
+
+.navbar__menu {
+  padding: 1em 2em;
+  transition: 0.3s ease-in;
+  &:hover {
+    background-color: darken($senary-color, 5%);
+    border-radius: 3px;
+  }
+
+  .nav-link {
+    font-weight: 600;
+    font-size: large;
+  }
+}
+
+.greet {
+  display: flex;
+  justify-content: space-evenly;
+  &__title {
+    font-size: 4.5em;
+    font-weight: 700;
+    color: $primary-color;
+  }
+  &__name {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: $secondary-color;
+  }
+  &__subtitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: darken($secondary-color, 10%);
+    opacity: 0.8;
+  }
+  &__btn {
+    @include btn__primary;
+    margin: 30px 0;
+  }
+  &__img {
+    margin-right: -170px;
+    width: 900px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 1em 0;
+    &__title {
+      font-size: 3.5em;
+    }
+    &__name {
+      text-align: center;
+      font-size: 1.5em;
+    }
+    &__subtitle {
+      text-align: center;
+      font-size: 1em;
+    }
+    &__img {
+      margin-left: auto;
+      width: 500px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    margin: 1em 0 1em;
+    &__title {
+      font-size: 2.5em;
+    }
+    &__name {
+      font-size: 1.5em;
+    }
+    &__subtitle {
+      font-size: 1em;
+    }
+    &__img {
+      width: 450px;
+      margin-right: auto;
+    }
+  }
 }
