@@ -37,9 +37,30 @@ $senary-color: #f4f5f8;
   }
 }
 
+@mixin title-menu {
+  font-weight: 600;
+  font-size: 40px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: $primary-color;
+    margin: 10px auto;
+  }
+}
+
+@mixin excerpt {
+  font-weight: 300;
+  font-size: 28px;
+  text-align: justify;
+}
+
 body {
   background-color: $senary-color;
   font-family: "Nunito Sans", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .navbar__menu {
@@ -102,15 +123,15 @@ body {
       font-size: 1em;
     }
     &__img {
-      margin-left: auto;
-      width: 500px;
+      margin-left: -100px;
+      width: 700px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    margin: 1em 0 1em;
+    margin-top: 20px;
     &__title {
-      font-size: 2.5em;
+      font-size: 1.5em;
     }
     &__name {
       font-size: 1.5em;
@@ -120,7 +141,216 @@ body {
     }
     &__img {
       width: 450px;
-      margin-right: auto;
+      margin-right: -50px;
+    }
+  }
+
+  @media screen and (max-width: 992px) {
+    margin-top: 20px;
+    &__title {
+      font-size: 3em;
+    }
+    &__name {
+      font-size: 2em;
+    }
+    &__subtitle {
+      font-size: 1.5em;
+    }
+    &__img {
+      width: 700px;
+      margin-right: -100px;
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 20px;
+    &__title {
+      font-size: 3em;
+    }
+    &__name {
+      font-size: 2em;
+    }
+    &__subtitle {
+      font-size: 1.5em;
+    }
+    &__img {
+      width: 700px;
+    }
+  }
+}
+
+.about-me {
+  margin-top: 50px;
+  margin-bottom: 50px;
+
+  &__title {
+    padding: 50px;
+    text-align: center;
+    &--primary {
+      @include title-menu;
+    }
+  }
+
+  &__content {
+    display: flex;
+
+    &--img {
+      width: 2000px;
+      lottie-player {
+        margin-top: -50px;
+      }
+    }
+
+    &--excerpt {
+      padding: 50px;
+      p {
+        @include excerpt();
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      flex-wrap: wrap;
+
+      &--excerpt {
+        padding: 50px;
+        p {
+          font-size: 20px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+    }
+
+    @media screen and (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.skills {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  &__title {
+    padding: 50px;
+    text-align: center;
+    &--primary {
+      @include title-menu;
+    }
+  }
+
+  img:hover {
+    cursor: pointer;
+    background-color: $quinary-color;
+  }
+}
+
+.projects {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  &__title {
+    padding: 50px;
+    text-align: center;
+    &--primary {
+      @include title-menu;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+
+    @media screen and (max-width: 576px) {
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+    }
+    @media screen and (max-width: 992px) {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.contact {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+    &--img {
+      img {
+        width: 200px;
+        border: $secondary-color 5px solid;
+      }
+    }
+
+    &--text {
+      margin-top: auto;
+      margin-bottom: auto;
+      margin-left: 20px;
+
+      h2 {
+        font-size: 3em;
+        font-weight: 700;
+        color: $primary-color;
+      }
+
+      h6 {
+        font-size: 1.2em;
+        font-weight: 300;
+        color: $secondary-color;
+        opacity: 0.6;
+      }
+
+      p {
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+
+      span {
+        font-size: 1.2em;
+        font-weight: 600;
+      }
+    }
+
+    @media screen and (max-width: 576px) {
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+
+      &--img {
+        img {
+          width: 170px;
+          border: $secondary-color 5px solid;
+        }
+      }
+
+      &--text {
+        margin: 10px auto;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      flex-wrap: wrap;
+      align-items: center;
+      text-align: center;
+
+      &--img {
+        img {
+          width: 170px;
+          border: $secondary-color 5px solid;
+        }
+      }
+
+      &--text {
+        margin: 10px auto;
+      }
     }
   }
 }
